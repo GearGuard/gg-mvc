@@ -1,18 +1,18 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
-use app\core\middlewares\BaseMiddleware;
+use gearguard\phpmvc\middlewares\BaseMiddleware;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 class Controller
 {
 	/*
-	 * @var \app\core\middlewares\BaseMiddleware[]
+	 * @var \gearguard\phpmvc\middlewares\BaseMiddleware[]
 	 */
 	protected array $middlewares = [];
 	public string $layout = 'main';

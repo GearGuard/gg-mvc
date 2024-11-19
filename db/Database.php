@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core\db;
+namespace gearguard\phpmvc\db;
 
-use app\core\Application;
+use gearguard\phpmvc\Application;
 
 class Database
 {

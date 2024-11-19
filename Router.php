@@ -1,19 +1,20 @@
 <?php
 
-namespace app\core;
-use app\core\middlewares\BaseMiddleware;
-use app\core\middlewares\AuthMiddleware;
-use app\core\exception\NotFoundException;
+namespace gearguard\phpmvc;
+
+use gearguard\phpmvc\middlewares\BaseMiddleware;
+use gearguard\phpmvc\middlewares\AuthMiddleware;
+use gearguard\phpmvc\exception\NotFoundException;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 
 class Router
 {
-	
+
     public Request $request;
     public Response $response;
     protected array $routes = [];
@@ -47,15 +48,15 @@ class Router
             return Application::$app->view->renderView($callback);
         }
         if (is_array($callback)) {
-			/** @var \app\core\Controller $controller */
+            /** @var \gearguard\phpmvc\Controller $controller */
             $controller = new $callback[0]();
             Application::$app->controller = $controller;
             $controller->action = $callback[1];
             $callback[0] = $controller;
-			
-			foreach ($controller->getMiddlewares() as $middleware) {
-				$middleware->execute();
-			}
+
+            foreach ($controller->getMiddlewares() as $middleware) {
+                $middleware->execute();
+            }
         }
         return call_user_func($callback, $this->request, $this->response);
     }

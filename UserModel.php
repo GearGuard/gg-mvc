@@ -1,12 +1,12 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
-use app\core\db\DbModel;
+use gearguard\phpmvc\db\DbModel;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 abstract class UserModel extends DbModel

@@ -1,10 +1,9 @@
 <?php
-	
-	namespace app\core\exception;
-	
-	class NotFoundException extends \Exception
-	{
-			protected $message = 'Page not found';
-			protected $code = 404;
-		
-	}
+
+namespace gearguard\phpmvc\exception;
+
+class NotFoundException extends \Exception
+{
+	protected $message = 'Page not found';
+	protected $code = 404;
+}

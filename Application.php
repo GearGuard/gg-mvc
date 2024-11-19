@@ -1,14 +1,14 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
-use app\core\db\Database;
-use app\core\Controller;
-use  app\core\db\DbModel;
+use gearguard\phpmvc\db\Database;
+use gearguard\phpmvc\Controller;
+use  gearguard\phpmvc\db\DbModel;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 class Application
@@ -65,19 +65,19 @@ class Application
     }
 
     /**
-     * @return \app\core\Controller
+     * @return \gearguard\phpmvc\Controller
      */
 
-    public function getController(): \app\core\Controller
+    public function getController(): \gearguard\phpmvc\Controller
     {
         return $this->controller;
     }
 
     /**
-     * @param \app\core\Controller $controller
+     * @param \gearguard\phpmvc\Controller $controller
      */
 
-    public function setController(\app\core\Controller $controller): void
+    public function setController(\gearguard\phpmvc\Controller $controller): void
     {
         $this->controller = $controller;
     }

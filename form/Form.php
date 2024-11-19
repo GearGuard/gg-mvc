@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core\form;
+namespace gearguard\phpmvc\form;
 
-use app\core\Model;
-use app\core\form\Field;
+use gearguard\phpmvc\Model;
+use gearguard\phpmvc\form\Field;
 
 
 class Form
@@ -19,7 +19,7 @@ class Form
 		echo '</form>';
 	}
 
-	public function field(\app\core\Model $model, $attribute)
+	public function field(\gearguard\phpmvc\Model $model, $attribute)
 	{
 		return new InputField($model, $attribute);
 	}

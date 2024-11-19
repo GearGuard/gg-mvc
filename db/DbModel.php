@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core\db;
+namespace gearguard\phpmvc\db;
 
-use app\core\Application;
-use app\core\Model;
+use gearguard\phpmvc\Application;
+use gearguard\phpmvc\Model;
 
 //map user's model and use's class
 abstract class DbModel extends Model

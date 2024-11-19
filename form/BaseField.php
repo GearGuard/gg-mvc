@@ -1,8 +1,8 @@
 <?php
 
-namespace app\core\form;
+namespace gearguard\phpmvc\form;
 
-use app\core\Model;
+use gearguard\phpmvc\Model;
 
 abstract class BaseField
 {
@@ -10,7 +10,7 @@ abstract class BaseField
 	public string $attribute;
 
 	/**
-	 * @param \app\core\Model $model
+	 * @param \gearguard\phpmvc\Model $model
 	 * @param string $attribute
 	 */
 	public function __construct(Model $model, string $attribute)

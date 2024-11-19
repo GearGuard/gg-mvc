@@ -1,9 +1,9 @@
 <?php
 
-namespace app\core\form;
+namespace gearguard\phpmvc\form;
 
-use app\core\Model;
-use app\core\form\BaseField;
+use gearguard\phpmvc\Model;
+use gearguard\phpmvc\form\BaseField;
 
 class InputField extends BaseField
 {
@@ -16,10 +16,10 @@ class InputField extends BaseField
 	public string $attribute;
 
 	/**
-	 * @param \app\core\Model $model
+	 * @param \gearguard\phpmvc\Model $model
 	 * @param string $attribute
 	 */
-	public function __construct(\app\core\Model $model, string $attribute)
+	public function __construct(\gearguard\phpmvc\Model $model, string $attribute)
 	{
 		$this->type = self::TYPE_TEXT;
 		parent::__construct($model, $attribute);

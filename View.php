@@ -1,10 +1,10 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 

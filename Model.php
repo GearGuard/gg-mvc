@@ -1,10 +1,10 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 abstract class Model
@@ -26,12 +26,12 @@ abstract class Model
 	}
 
 	abstract public function rules(): array;
-	
+
 	public function labels(): array
 	{
 		return [];
 	}
-	
+
 	public function getLabel($attribute)
 	{
 		return $this->labels()[$attribute] ?? $attribute;
@@ -64,7 +64,7 @@ abstract class Model
 					$rule['match'] = $this->getLabel($rule['match']);
 					$this->addErrorForRule($attribute, self::RULE_MATCH, $rule);
 				}
-				if($ruleName === self::RULE_UNIQUE){
+				if ($ruleName === self::RULE_UNIQUE) {
 					$className = $rule['class'];
 					$uniqueAttr = $rule['attribute'] ?? $attribute;
 					$tableName = $className::tableName();
@@ -72,14 +72,13 @@ abstract class Model
 					$statement->bindValue(":attr", $value);
 					$statement->execute();
 					$record = $statement->fetchObject();
-					if($record){
+					if ($record) {
 						$this->addErrorForRule($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
 					}
 				}
 			}
 		}
 		return empty($this->errors);
-		
 	}
 	private function addErrorForRule(string $attribute, string $rule, $params = [])
 	{
@@ -89,7 +88,7 @@ abstract class Model
 		}
 		$this->errors[$attribute][] = $message;
 	}
-	
+
 	public function addError(string $attribute, string $message)
 	{
 		$this->errors[$attribute][] = $message;
@@ -110,7 +109,7 @@ abstract class Model
 	{
 		return $this->errors[$attribute] ?? false;
 	}
-	
+
 	public function getFirstError($attribute)
 	{
 		return $this->errors[$attribute][0] ?? false;

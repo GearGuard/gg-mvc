@@ -1,10 +1,10 @@
 <?php
 
-namespace app\core;
+namespace gearguard\phpmvc;
 
 /**
  * @author Sandhavi Wanigasooriya
- * @package app/core
+ * @package gearguard/phpmvc
  */
 
 
@@ -14,9 +14,9 @@ class Response
     {
         http_response_code($code);
     }
-	
-	public function redirect(string $url)
-	{
-		header('Location: ' . $url);
-	}
+
+    public function redirect(string $url)
+    {
+        header('Location: ' . $url);
+    }
 }
