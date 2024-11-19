@@ -1,0 +1,15 @@
+{
+    "name": "gg/php-mvc-core",
+    "autoload": {
+        "psr-4": {
+            "Gg\\PhpMvcCore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sandhavi Wanigasooriya",
+            "email": "sandhaviwanigasooriya@gmail.com"
+        }
+    ],
+    "require": {}
+}
