@@ -1,5 +1,5 @@
 {
-    "name": "gg/php-mvc-core",
+    "name": "GearGuard/php-mvc-core",
     "autoload": {
         "psr-4": {
             "Gg\\PhpMvcCore\\": "src/"
