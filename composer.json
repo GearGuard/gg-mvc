@@ -11,5 +11,11 @@
             "email": "sandhaviwanigasooriya@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "app\\": ".",
+            "app\\core\\": "core/"
+        }
+    },
     "require": {}
 }
