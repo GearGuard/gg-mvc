@@ -42,6 +42,8 @@ class Application
 
         $primaryValue = $this->session->get('user');
         if ($primaryValue) {
+            $this->userClass = $this->session->get('userClass');
+            $userInstance = new $this->userClass();
             $primaryKey = $userInstance->primaryKey();
             $this->user = $userInstance->findOne([$primaryKey => $primaryValue]);
         } else {
@@ -88,6 +90,7 @@ class Application
         $primaryKey = $user->primaryKey();
         $primaryValue = $user->{$primaryKey};
         $this->session->set('user', $primaryValue);
+        $this->session->set('userClass', $user::class);
         return true;
     }
     public function logout()
