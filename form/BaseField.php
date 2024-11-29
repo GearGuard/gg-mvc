@@ -9,10 +9,6 @@ abstract class BaseField
 	public Model $model;
 	public string $attribute;
 
-	/**
-	 * @param \gearguard\phpmvc\Model $model
-	 * @param string $attribute
-	 */
 	public function __construct(Model $model, string $attribute)
 	{
 		$this->model = $model;
@@ -25,14 +21,15 @@ abstract class BaseField
 	{
 		return sprintf(
 			'
-			<div class="form-group">
-        		<label class="form-label">%s</label>
-        		%s
-				<div class="invalid-feedback">
-					%s
-				</div>
-			</div>
-			',
+            <div class="form-group">
+                <label for="%s" class="form-label">%s<span class="required-dot"> *</span></label>
+                %s
+                <div class="invalid-feedback">
+                    %s
+                </div>
+            </div>
+            ',
+			$this->attribute,
 			$this->model->getLabel($this->attribute),
 			$this->renderInput(),
 			$this->model->getFirstError($this->attribute)
