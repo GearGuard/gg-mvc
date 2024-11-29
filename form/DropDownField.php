@@ -6,9 +6,9 @@ use gearguard\phpmvc\Model;
 
 class DropDownField extends BaseField
 {
-    public array $options;
+    public $options;
 
-    public function __construct(Model $model, string $attribute, array $options)
+    public function __construct($model, $attribute, $options)
     {
         $this->options = $options;
         parent::__construct($model, $attribute);
@@ -16,10 +16,9 @@ class DropDownField extends BaseField
 
     public function renderInput(): string
     {
-        $optionsHtml = '';
-        foreach ($this->options as $value => $label) {
-            $selected = $this->model->{$this->attribute} == $value ? 'selected' : '';
-            $optionsHtml .= sprintf('<option value="%s" %s>%s</option>', $value, $selected, $label);
+        $optionsHtml = '<option value="">Select ' . $this->model->getLabel($this->attribute) . '</option>';
+        foreach ($this->options as $key => $value) {
+            $optionsHtml .= sprintf('<option value="%s">%s</option>', $key, $value);
         }
 
         return sprintf(
