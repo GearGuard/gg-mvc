@@ -33,13 +33,6 @@ class View
 		// Default layout
 		$layout = Application::$app->layout;
 
-		// Determine which layout to use based on the request URI
-		if (strpos($requestUri, '/customer') === 0) {
-			$layout = 'customer'; // Use customer layout
-		} elseif (strpos($requestUri, '/admin') === 0) {
-			$layout = 'admin'; // Use admin layout
-		}
-
 		// Log which layout is being used
 		error_log("Using Layout: $layout");
 
