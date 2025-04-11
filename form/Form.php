@@ -8,9 +8,9 @@ use gearguard\phpmvc\form\Field;
 
 class Form
 {
-	public static function begin($action, $method)
+	public static function begin($action, $method, $id = '', $class = 'appointment-form')
 	{
-		echo sprintf('<form action="%s" method="%s" class="appointment-form">', $action, $method);
+		echo sprintf('<form action="%s" method="%s" class="%s" id="%s">', $action, $method, $class, $id);
 		return new Form();
 	}
 

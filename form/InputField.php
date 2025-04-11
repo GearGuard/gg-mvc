@@ -61,6 +61,12 @@ class InputField extends BaseField
         return $this;
     }
 
+    public function type(FieldTypes $type): self
+    {
+        $this->type = $type->value;
+        return $this;
+    }
+
 	public function renderInput(): string
 	{
 		return sprintf(
@@ -76,4 +82,12 @@ class InputField extends BaseField
             $this->required ? ' required' : '',
 		);
 	}
+}
+
+enum FieldTypes : string {
+    case TYPE_TEXT = 'text';
+    case TYPE_PASSWORD = 'password';
+    case TYPE_NUMBER = 'number';
+    case TYPE_EMAIL = 'email';
+    case TYPE_TEL = 'tel';
 }
