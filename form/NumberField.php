@@ -9,7 +9,9 @@ class NumberField extends BaseField
     public float $step = 1;
     public ?float $min = null;
     public ?float $max = null;
-    public bool $required = false;
+    public bool $readonly = false;
+    public bool $disabled = false;
+    public string $placeholder = '';
 
     public function __construct(Model $model, string $attribute)
     {
@@ -40,6 +42,24 @@ class NumberField extends BaseField
         return $this;
     }
 
+    public function disabled(bool $disabled = true) : self
+    {
+        $this->disabled = $disabled;
+        return $this;
+    }
+
+    public function readonly(bool $readonly = true) : self
+    {
+        $this->readonly = $readonly;
+        return $this;
+    }
+
+    public function placeholder(string $placeholder): self
+    {
+        $this->placeholder = $placeholder;
+        return $this;
+    }
+
     public function renderInput(): string
     {
         $attributes = [
@@ -49,7 +69,7 @@ class NumberField extends BaseField
             'value' => $this->model->{$this->attribute},
             'step' => $this->step,
             'class' => 'form-input' . ($this->model->hasError($this->attribute) ? ' is-invalid' : ''),
-            'placeholder' => "Enter " . $this->model->getLabel($this->attribute)
+            'placeholder' => ($this->placeholder == '' ? "Enter the " . $this->model->getLabel($this->attribute): $this->placeholder),
         ];
 
         if ($this->min !== null) {
@@ -62,6 +82,14 @@ class NumberField extends BaseField
 
         if ($this->required) {
             $attributes['required'] = 'required';
+        }
+
+        if ($this->readonly) {
+            $attributes['readonly'] = 'readonly';
+        }
+
+        if ($this->disabled) {
+            $attributes['disabled'] = 'disabled';
         }
 
         $attributeString = implode(' ', array_map(

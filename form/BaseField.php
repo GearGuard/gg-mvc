@@ -8,6 +8,7 @@ abstract class BaseField
 {
 	public Model $model;
 	public string $attribute;
+    public bool $required = false;
 
 	public function __construct(Model $model, string $attribute)
 	{
@@ -18,11 +19,11 @@ abstract class BaseField
 	abstract public function renderInput();
 
 	public function __toString()
-	{
+    {
 		return sprintf(
 			'
             <div class="form-group">
-                <label for="%s" class="form-label">%s<span class="required-dot"> *</span></label>
+                <label for="%s" class="form-label">%s%s</label>
                 %s
                 <div class="invalid-feedback">
                     %s
@@ -31,7 +32,8 @@ abstract class BaseField
             ',
 			$this->attribute,
 			$this->model->getLabel($this->attribute),
-			$this->renderInput(),
+            $this->required ? '<span class="required-dot"> *</span>' : '',
+            $this->renderInput(),
 			$this->model->getFirstError($this->attribute)
 		);
 	}
