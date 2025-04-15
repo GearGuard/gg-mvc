@@ -14,8 +14,9 @@
     "autoload": {
         "psr-4": {
             "gearguard\\phpmvc\\": "."
-            
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=8.0"
+    }
 }
