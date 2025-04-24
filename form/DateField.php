@@ -1,5 +1,8 @@
 <?php
+
 namespace gearguard\phpmvc\form;
+
+use gearguard\phpmvc\Model;
 
 class DateField extends BaseField
 {
@@ -13,13 +16,13 @@ class DateField extends BaseField
         return $this;
     }
 
-    public function disabled(bool $disabled = true): self
+    public function disabled(bool $disabled = true) : self
     {
         $this->disabled = $disabled;
         return $this;
     }
 
-    public function readonly(bool $readonly = true): self
+    public function readonly(bool $readonly = true) : self
     {
         $this->readonly = $readonly;
         return $this;
@@ -38,7 +41,7 @@ class DateField extends BaseField
             $this->attribute,
             $this->attribute,
             $this->model->{$this->attribute},
-            $this->placeholder == '' ? "Enter the " . $this->model->getLabel($this->attribute) : $this->placeholder,
+            $this->placeholder == '' ? "Enter the " . $this->model->getLabel($this->attribute): $this->placeholder,
             $this->model->hasError($this->attribute) ? ' is-invalid' : '',
             $this->readonly ? ' readonly' : '',
             $this->disabled ? ' disabled' : '',

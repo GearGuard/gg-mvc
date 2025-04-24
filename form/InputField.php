@@ -84,10 +84,10 @@ class InputField extends BaseField
 	}
 }
 
-enum FieldTypes : string {
-    case TYPE_TEXT = 'text';
-    case TYPE_PASSWORD = 'password';
-    case TYPE_NUMBER = 'number';
-    case TYPE_EMAIL = 'email';
-    case TYPE_TEL = 'tel';
+class FieldTypes {
+    public const TYPE_TEXT = 'text';
+    public const TYPE_PASSWORD = 'password';
+    public const TYPE_NUMBER = 'number';
+    public const TYPE_EMAIL = 'email';
+    public const TYPE_TEL = 'tel';
 }
