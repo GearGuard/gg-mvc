@@ -11,6 +11,15 @@ class InputField extends BaseField
 	public const TYPE_PASSWORD = 'password';
 	public const TYPE_NUMBER = 'number';
 	public const TYPE_EMAIL = 'email';
+    public const TYPE_TEL = 'tel';
+
+    private const types = [
+        self::TYPE_TEXT,
+        self::TYPE_PASSWORD,
+        self::TYPE_NUMBER,
+        self::TYPE_EMAIL,
+        self::TYPE_TEL
+    ];
 
 	public string $type;
 	public Model $model;
@@ -61,9 +70,17 @@ class InputField extends BaseField
         return $this;
     }
 
-    public function type(FieldTypes $type): self
+    public function type($type): self
     {
-        $this->type = $type->value;
+        if (!is_string($type)) {
+            throw new \InvalidArgumentException('Type must be a string');
+        } else {
+            $type = strtolower($type);
+            if (!in_array($type, self::types)) {
+                throw new \InvalidArgumentException('Invalid type provided');
+            }
+        }
+        $this->type = $type;
         return $this;
     }
 
@@ -82,12 +99,4 @@ class InputField extends BaseField
             $this->required ? ' required' : '',
 		);
 	}
-}
-
-class FieldTypes {
-    public const TYPE_TEXT = 'text';
-    public const TYPE_PASSWORD = 'password';
-    public const TYPE_NUMBER = 'number';
-    public const TYPE_EMAIL = 'email';
-    public const TYPE_TEL = 'tel';
 }
