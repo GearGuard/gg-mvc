@@ -43,7 +43,7 @@ class DropDownField extends BaseField
 
     public function renderInput(): string
     {
-        $optionsHtml = '<option value="">Select ' . $this->model->getLabel($this->attribute) . '</option>';
+        $optionsHtml = '<option value="" style="display: none">Select ' . $this->model->getLabel($this->attribute) . '</option>';
         foreach ($this->options as $key => $value) {
             $optionsHtml .= sprintf('<option value="%s">%s</option>', $key, $value);
         }
